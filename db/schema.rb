@@ -10,8 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_020122) do
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_030056) do
+  create_table "comments", charset: "utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "prototype_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prototypes", charset: "utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "prototype"
+    t.text "image"
+    t.text "catch_copy"
+    t.text "concept"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
