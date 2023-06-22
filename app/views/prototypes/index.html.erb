@@ -8,6 +8,8 @@
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+      <%= render partial: "prototype" %> 
+      <%# locals: { ローカル変数: ローカル変数} renderの引数。デプロイ実装(6/22)時点ではNameErrorのためコメントアウト %>
     </div>
   </div>
 </main>
