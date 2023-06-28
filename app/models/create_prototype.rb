@@ -1,2 +1,0 @@
-class CreatePrototype < ApplicationRecord
-end
