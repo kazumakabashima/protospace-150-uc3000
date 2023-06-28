@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :set_prototype, only: [:show, :edit, :update, :destroy, :move_to_index]
-  before_action :move_to_index, except: [:index, :show, :new]
+  before_action :move_to_index, except: [:index, :show, :new, :create]
 
   def index
     @prototypes = Prototype.all.includes(:user).order("created_at DESC")
