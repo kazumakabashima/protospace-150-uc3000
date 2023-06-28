@@ -27,16 +27,9 @@
       <h2 class="page-heading">
         <%= @name %>のプロトタイプ
       </h2>
+      </h2>
       <div class="user__card">
-        <% @prototypes.each do |prototype| %>
-          <div class="prototype">
-            <h3><%= prototype.title %></h3>
-            <p><strong>投稿者:</strong> <%= prototype.user.name %></p>
-            <p><strong>画像:</strong> <%= image_tag prototype.image %></p>
-            <p><strong>キャッチコピー:</strong> <%= prototype.catch_copy %></p>
-            <p><strong>コンセプト:</strong> <%= prototype.concept %></p>
-          </div>
-        <% end %>
+        <%= render partial: "prototypes/prototype", collection: @prototypes %>
       </div>
     </div>
   </div>
