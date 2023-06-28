@@ -1,15 +1,13 @@
 class PrototypesController < ApplicationController
 
   def index
-    @prototypes = Prototype.all
-    # Prototype.includes(:user).order("created_at DESC")
-    #% allは省略できているから問題なし
+    @prototypes = Prototype.all.includes(:user).order("created_at DESC")
   end
 
-  def new 
-    @prototype = Prototype.new  
-  end 
-  
+  def new
+    @prototype = Prototype.new
+  end
+
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
@@ -17,11 +15,11 @@ class PrototypesController < ApplicationController
     else
       render :new
     end
-  end
-
+  end 
+  
   private
   def prototype_params
-    params.require(:prototype).permit(:prototype, :catch_copy, :concept, :image,)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, :image,).merge(user_id: current_user.id)
   end
 
 end
